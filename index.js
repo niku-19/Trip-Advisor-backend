@@ -17,14 +17,7 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/", (req, res) => {
-  res.status(200).json({
-    status: 200,
-    success: true,
-    message: "Hello World",
-    data: null,
-  });
-});
+app.get("/", (req, res) => res.send("Welcome to the Trip Advisor API"));
 app.use("/v1/api", tripAdvisorRouter);
 
 app.use("*", (req, res) => {
